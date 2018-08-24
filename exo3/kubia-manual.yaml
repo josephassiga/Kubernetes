@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubia-manual-with-multi-port
+  labels:
+    app: kubia-with-multi-port
+spec:
+  containers:
+  - image: josephassiga/kubia-with-multi-port
+    name: kubia-joseph-with-multi-port
+    ports:
+    - name: http
+      containerPort: 8081
+      protocol: TCP
+    - name: https
+      containerPort: 8443
+      protocol: TCP
