@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
   - image: josephassiga/kubia
-    name: kubia-joseph
+    name: kubia
     ports:
-    - containerPort: 8082
+    - containerPort: 8080
       protocol: TCP
