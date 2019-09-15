@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: mongodb
+spec:
+ volumes:
+ - name: mongo-data
+   gcePersistentDisk:
+    pdName: mongodb
+    fsType: ext4
+ containers:
+ - image: mongo
+   name: mongodb
+   volumeMounts:
+   - name: mongo-data
+     mountPath: /data/db
+   ports:
+   - containerPort: 27017
+     protocol: TCP

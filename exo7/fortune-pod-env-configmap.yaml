@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fortune-pod-env-configmap
+spec:
+ containers:
+ - image: josephassiga/fortune:args
+   name: image-generator
+   env:
+   - name: INTERVAL
+     valueFrom:
+       configMapKeyRef:
+        name: fortune-config
+        key: sleep-interval
+   volumeMounts:
+   - name: html
+     mountPath: /var/htdocs
+ - image: nginx:1.15.3-alpine
+   name: web-server
+   volumeMounts:
+   - name: html
+     mountPath: /usr/share/ngnix/html
+     readOnly: true
+   ports:
+   - containerPort: 80
+     protocol: TCP
+ volumes:
+ - name: html
+   emptyDir: {}
+  

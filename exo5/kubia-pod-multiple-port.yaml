@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubia-multiple-port
+spec:
+ containers:
+   - image: josephassiga/kubia-multiple-port
+     name: kubia
+     ports:
+     - name: http
+       containerPort: 8080
+     - name: htpps
+       containerPort: 8443

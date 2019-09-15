@@ -1,0 +1,7 @@
+apiVersion: extensions/v1beta1
+king: Ingress
+metadata:
+  name: ghost
+spec:
+  rules:
+  - host: ghost.
